@@ -1,0 +1,17 @@
+{
+    "name": "imarc/headless-wp",
+    "description": "Headless demonstrator for WordPress",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Imarc\\HeadlessWp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Madison Pratt",
+            "email": "madisonpratt@imarc.com"
+        }
+    ],
+    "require": {}
+}

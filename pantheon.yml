@@ -1,0 +1,4 @@
+protected_web_paths:
+  - /wp-content/plugins/rentaly-blocks
+
+enforce_https: transitional

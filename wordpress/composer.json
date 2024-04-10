@@ -1,10 +1,31 @@
 {
     "name": "imarc/headless-wp",
     "description": "Headless demonstrator for WordPress",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        },
+        {
+            "type":"composer",
+            "url":"https://connect.advancedcustomfields.com"
+        }
+    ],
     "type": "project",
     "autoload": {
         "psr-4": {
             "Imarc\\HeadlessWp\\": "src/"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": [
+                "packagist-plugin/*"
+            ]
         }
     },
     "authors": [
@@ -13,5 +34,15 @@
             "email": "madisonpratt@imarc.com"
         }
     ],
-    "require": {}
+    "require": {
+        "wpackagist-plugin/wp-graphql": "^1.23",
+        "wpackagist-plugin/faustwp": "^1.2",
+        "wpackagist-plugin/wpgraphql-acf": "^2.2",
+        "wpengine/advanced-custom-fields-pro": "^6.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
 }

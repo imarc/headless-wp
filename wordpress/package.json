@@ -1,0 +1,11 @@
+{
+  "name": "headless-wp",
+  "version": "0.1.0",
+  "description": "Headless demonstrator for WordPress",
+  "main": "index.js",
+  "scripts": {
+    "build": "(cd imarc/rentaly-blocks && npm install && npm run build) && cp -r imarc/rentaly-blocks/build wp-content/plugins/rentaly-blocks/build && cp imarc/rentaly-blocks/rentaly-blocks.php wp-content/plugins/rentaly-blocks/rentaly-blocks.php"
+  },
+  "author": "Madison Pratt",
+  "license": "ISC"
+}

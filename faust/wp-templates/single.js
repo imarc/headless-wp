@@ -10,7 +10,7 @@ import {
   Main,
   NavigationMenu,
   SEO,
-} from '../components';
+} from '../../common/components';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 

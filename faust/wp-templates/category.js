@@ -11,7 +11,7 @@ import {
   Post,
   FeaturedImage,
   SEO,
-} from '../components';
+} from '../../common/components';
 
 export default function Component(props) {
   const { title: siteTitle, description: siteDescription } =

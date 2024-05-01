@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 function rentaly_blocks_rentaly_blocks_block_init() {
+	register_block_type( __DIR__ . '/build/featured-rentals' );
 	register_block_type( __DIR__ . '/build/homepage-hero' );
 }
 

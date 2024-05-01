@@ -54,7 +54,7 @@ if (isset($_SERVER['HTTP_HOST'])) {
     // HTTP is still the default scheme for now.
     $scheme = 'http';
     // If we have detected that the end use is HTTPS, make sure we pass that
-    // through here, so <img> tags and the like don't generate mixed-mode
+    // through here, so <img> tags and the like don't generate mixed-modeS
     // content warnings.
     if (isset($_SERVER['HTTP_USER_AGENT_HTTPS']) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON') {
         $scheme = 'https';

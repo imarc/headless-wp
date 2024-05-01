@@ -1,23 +1,18 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "rentaly/featured-rentals",
-	"version": "0.1.0",
-	"title": "Featured Rentals",
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/rentaly-featured-rentals",
+    "version": "0.1.0",
+    "title": "Featured Rentals",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Carousel displaying featured cars available for rental.",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"acf": {
-        "mode": "preview",
-        "renderTemplate": "featured-rentals.php"
+    "example": {},
+    "supports": {
+        "html": false
     },
-	"textdomain": "rentaly-blocks",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
 }

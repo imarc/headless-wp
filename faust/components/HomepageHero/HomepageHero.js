@@ -5,11 +5,7 @@ import styles from './HomepageHero.module.scss';
 let cx = className.bind(styles);
 
 export default function HomepageHero(props) {
-  console.log("HomepageHero called, props below:");
-  console.log(props);
-
-  const { ctaText, ctaLink, heroSlides } = props?.homepageHero || {};
-
+  const { ctaText, ctaUrl, heroSlides } = props || {};
   return (
       <div>
           {heroSlides?.map((slide, index) => (
@@ -19,9 +15,9 @@ export default function HomepageHero(props) {
                   <img src={slide.slideImage?.node?.sourceUrl} alt="Slide" />
               </div>
           ))}
-          {ctaText && ctaLink && (
+          {ctaText && ctaUrl && (
               <div>
-                  <a href={ctaLink}>{ctaText}</a>
+                  <a href={ctaUrl}>{ctaText}</a>
               </div>
           )}
       </div>

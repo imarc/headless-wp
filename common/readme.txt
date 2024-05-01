@@ -1,1 +1,0 @@
-View only components here, called from their respective wp-blocks component.

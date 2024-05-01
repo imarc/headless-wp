@@ -7,7 +7,6 @@ export default function Component(props) {
   const { editorBlocks } = props.data.pages.nodes[0];
   return (
     <div>
-      INSIDE FRONT PAGE
       <WordPressBlocksViewer blocks={editorBlocks}/>
     </div>
 

@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 import React from 'react';
-import { HomepageHero } from '../../../common/components';
+import { HomepageHero } from '../../components/HomepageHero'
 
 export default function AcfHomepageHero(props) {
-  return <HomepageHero props={props}/>
+    return <HomepageHero {...props.homepageHero}/>
 }
 
 AcfHomepageHero.fragments = {
@@ -11,7 +11,7 @@ AcfHomepageHero.fragments = {
         fragment AcfHomepageHeroFragment on AcfHomepageHero {
             homepageHero {
                 ctaText
-                ctaLink
+                ctaUrl
                 heroSlides {
                     headline
                     subheadline

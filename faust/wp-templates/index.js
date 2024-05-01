@@ -5,9 +5,9 @@ import page from './page';
 import single from './single';
 
 export default {
-  category,
-  tag,
+  // category,
+  // tag,
   'front-page': frontPage,
-  page,
-  single,
+  // page,
+  // single,
 };

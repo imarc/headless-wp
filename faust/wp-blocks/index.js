@@ -1,7 +1,9 @@
 // wp-blocks/index.js
-import Rentaly from './rentaly';
+import FeaturedRentals from './FeaturedRentals/FeaturedRentals';
+import AcfHomepageHero from './AcfHomepageHero/AcfHomepageHero';
 
 // export blocks
 export default {
-    ...Rentaly
+    'FeaturedRentals': FeaturedRentals,
+    'AcfHomepageHero': AcfHomepageHero,
 };

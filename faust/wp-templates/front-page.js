@@ -1,14 +1,15 @@
 import { WordPressBlocksViewer } from '@faustwp/blocks';
 import blocks from '../wp-blocks';
 import { gql } from '@apollo/client';
+import { Layout } from '../components/Layout';
 
 export default function Component(props) {
   console.log(props);
   const { editorBlocks } = props.data.pages.nodes[0];
   return (
-    <div>
-      <WordPressBlocksViewer blocks={editorBlocks}/>
-    </div>
+      <Layout>
+        <WordPressBlocksViewer blocks={editorBlocks}/>
+      </Layout>
 
   )
 }

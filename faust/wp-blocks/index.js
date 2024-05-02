@@ -1,5 +1,5 @@
 // wp-blocks/index.js
-import FeaturedRentals from './FeaturedRentals/FeaturedRentals';
+import AcfFeaturedRentals from './AcfFeaturedRentals/AcfFeaturedRentals';
 import AcfHomepageHero from './AcfHomepageHero/AcfHomepageHero';
 import AcfStatsSection from './AcfStatsSection/AcfStatsSection';
 import AcfHighlightedFeatures from './AcfHighlightedFeatures/AcfHighlightedFeatures';
@@ -8,7 +8,7 @@ import AcfLatestNews from './AcfLatestNews/AcfLatestNews';
 
 // export blocks
 export default {
-    'FeaturedRentals': FeaturedRentals,
+    'AcfFeaturedRentals': AcfFeaturedRentals,
     'AcfHomepageHero': AcfHomepageHero,
     'AcfStatsSection': AcfStatsSection,
     'AcfHighlightedFeatures': AcfHighlightedFeatures,

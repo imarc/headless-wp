@@ -10,7 +10,6 @@ function constructMenuData(menuData) {
         parentKey: 'parentId',
         childrenKey: 'children'
     });
-    console.log(hierarchicalMenu);
     return hierarchicalMenu; 
 }
 
@@ -29,10 +28,7 @@ const MenuItem = ({ node }) => (
 );
 
 export default function Navigation(props) {
-    console.log(props);
     const hierarchicalNavigation = constructMenuData(props);
-    console.log(hierarchicalNavigation);
-
     return (
         <header className="transparent">            
         <div className="container">
@@ -67,6 +63,5 @@ export default function Navigation(props) {
             </div>
         </div>
     </header>
-
     )
 }

@@ -3,18 +3,19 @@ import blocks from '../wp-blocks';
 import { gql } from '@apollo/client';
 import { Layout } from '../components/Layout';
 import { Navigation } from '../components/Navigation';
+import { Footer } from '../components/Footer';
 
 export default function Component(props) {
+  console.log(props);
   const { editorBlocks } = props.data.pages.nodes[0];
   const { navigationMenu } = props.data;
-  const { footer } = props.data;
-
+  const { footer } = props.data.footerOptionPage;
   return (
       <Layout>
         <Navigation {...navigationMenu} />
         <WordPressBlocksViewer blocks={editorBlocks}/>
+        <Footer {...footer} />
       </Layout>
-
   )
 }
 
@@ -53,19 +54,37 @@ Component.query = gql`
         }
       }
     }
-    footerMenu: menu(id: "Footer", idType: NAME) {
-      count
-      id
-      databaseId
-      name
-      slug
-      menuItems (first: 100) {
-        nodes {
-          id
-          url
+    footerOptionPage {
+      footer {
+        textSection {
+          headline
+          paragraph
+        }
+        quickLinksSection {
+          headline
+          quickLinks {
+            label
+            url
+          }
+        }
+        contactUsSection {
+          headline
+          contactLinks {
+            iconClass
+            label
+            url
+          }
+        }
+        socialNetworksSection{
+          headline
+          socialLinks{
+            icon
+            url
+          }
+        }
+        bottomLinks {
           label
-          linkRelationship
-          parentId
+          url
         }
       }
     }

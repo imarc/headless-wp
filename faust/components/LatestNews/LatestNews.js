@@ -3,8 +3,6 @@ import styles from './LatestNews.module.scss';
 import Image from 'next/image'
 
 export default function LatestNews(props) {
-    console.log("Latest news props:");
-    console.log(props);
     const { articles, description, headline } = props || {};
 
     // Helper function to format the publish date

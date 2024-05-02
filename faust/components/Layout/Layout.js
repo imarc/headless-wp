@@ -28,7 +28,8 @@ export default function Layout({ children }) {
             </div>
             <Script src="js/plugins.js" strategy="beforeInteractive"/>
             <Script src="js/designesia.js" strategy="afterInteractive"/>
-            <Script src="https://maps.googleapis.com/maps/api/js?key=your_api_key&amp;libraries=places" strategy="afterInteractive" />
+            {/* Not sure we need google maps for this demo, but if so, we can turn this back on. */}
+            {/* <Script src="https://maps.googleapis.com/maps/api/js?key=your_api_key&amp;libraries=places" strategy="afterInteractive" /> */}
         </>
     );
 }

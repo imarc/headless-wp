@@ -8,7 +8,7 @@ export default function AcfFrequentlyAsked(props) {
     return <FrequentlyAsked {...props.frequentlyAsked} />;
 }
 
-AcfFrequentlyAsked.displayName = 'AcfFeaturedRentals';
+AcfFrequentlyAsked.displayName = 'AcfFrequentlyAsked';
 
 AcfFrequentlyAsked.fragments = {
     key: `AcfFrequentlyAskedFragment`,

@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/marquee-list",
+    "version": "0.1.0",
+    "title": "Marquee List",
+    "category": "widgets",
+    "icon": "smiley",
+    "description": "A marquee with a list of key phrases.",
+    "example": {},
+    "supports": {
+        "html": false
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
+}

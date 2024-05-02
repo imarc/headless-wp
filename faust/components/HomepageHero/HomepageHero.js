@@ -22,7 +22,7 @@ export default function HomepageHero(props) {
                 {heroSlides?.map((slide, index) => (
                     <div className={`carousel-item jarallax ${index === 0 ? 'active' : ''}`} key={index}>
                         <div className="jarallax-img">
-                            <Image src={slide.slideImage.node.sourceUrl} alt="" layout="fill" className='jarallax-img' objectFit='cover' quality={100}/>
+                            <img src={slide.slideImage.node.sourceUrl} alt="" layout="fill" className='jarallax-img' objectFit='cover' quality={100}/>
                         </div>
                         <div className="mask">
                             <div className="no-top no-bottom">

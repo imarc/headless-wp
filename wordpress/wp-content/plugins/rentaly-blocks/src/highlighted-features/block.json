@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/highlighted-features",
+    "version": "0.1.0",
+    "title": "Highlighted Features",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "A center image with surrounding features.",
+    "example": {},
+    "supports": {
+        "html": false
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
+}

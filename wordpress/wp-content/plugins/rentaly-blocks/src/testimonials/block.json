@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/testimonials",
+    "version": "0.1.0",
+    "title": "Testimonials",
+    "category": "widgets",
+    "icon": "smiley",
+    "description": "Customer testimonials",
+    "example": {},
+    "supports": {
+        "html": false
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
+}

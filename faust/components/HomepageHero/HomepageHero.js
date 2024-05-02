@@ -3,7 +3,6 @@ import styles from './HomepageHero.module.scss';
 import Image from 'next/image'
 
 export default function HomepageHero(props) {
-    console.log(props);
     const { ctaText, ctaUrl, heroSlides } = props || {};
     return (
         <section id="de-carousel" className="no-top no-bottom carousel slide carousel-fade" data-mdb-ride="carousel">

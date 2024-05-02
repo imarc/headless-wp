@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/latest-news",
+    "version": "0.1.0",
+    "title": "Latest News",
+    "category": "widgets",
+    "icon": "smiley",
+    "description": "Section to display the latest news",
+    "example": {},
+    "supports": {
+        "html": false
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
+}

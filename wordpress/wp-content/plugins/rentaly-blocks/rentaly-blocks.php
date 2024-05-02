@@ -25,6 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 function rentaly_blocks_rentaly_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/featured-rentals' );
 	register_block_type( __DIR__ . '/build/homepage-hero' );
+	register_block_type( __DIR__ . '/build/stats-section' );
+	register_block_type( __DIR__ . '/build/highlighted-features' );
+	register_block_type( __DIR__ . '/build/testimonials' );
+	register_block_type( __DIR__ . '/build/latest-news' );
 }
 
 add_action('init', 'rentaly_blocks_rentaly_blocks_block_init');

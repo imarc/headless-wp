@@ -1,12 +1,12 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 2,
-    "name": "acf/featured-rentals",
+    "name": "acf/frequently-asked",
     "version": "0.1.0",
-    "title": "Featured Rentals",
-	"category": "widgets",
-	"icon": "smiley",
-	"description": "Carousel displaying featured cars available for rental.",
+    "title": "Frequently Asked Questions",
+    "category": "widgets",
+    "icon": "smiley",
+    "description": "An accordion for frequently asked questions.",
     "example": {},
     "supports": {
         "html": false

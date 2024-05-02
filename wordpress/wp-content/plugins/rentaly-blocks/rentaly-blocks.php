@@ -29,6 +29,8 @@ function rentaly_blocks_rentaly_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/highlighted-features' );
 	register_block_type( __DIR__ . '/build/testimonials' );
 	register_block_type( __DIR__ . '/build/latest-news' );
+	register_block_type( __DIR__ . '/build/inline-promo' );
+	register_block_type( __DIR__ . '/build/frequently-asked' );
 }
 
 add_action('init', 'rentaly_blocks_rentaly_blocks_block_init');

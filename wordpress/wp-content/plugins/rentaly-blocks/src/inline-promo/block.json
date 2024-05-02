@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "acf/inline-promo",
+    "version": "0.1.0",
+    "title": "Inline Promo",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Inline promo and callout module.",
+    "example": {},
+    "supports": {
+        "html": false
+    },
+    "acf": {
+        "mode": "edit"
+    },
+    "textdomain": "rentaly-blocks"
+}

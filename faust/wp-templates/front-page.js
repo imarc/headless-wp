@@ -21,6 +21,8 @@ Component.query = gql`
   ${blocks.AcfTestimonials.fragments.entry}
   ${blocks.AcfLatestNews.fragments.entry}
   ${blocks.AcfFeaturedRentals.fragments.entry}
+  ${blocks.AcfInlinePromo.fragments.entry}
+  ${blocks.AcfFrequentlyAsked.fragments.entry}
 
   query HomepageQuery {
     pages(where: {name: "home"}) {
@@ -32,6 +34,8 @@ Component.query = gql`
           ...${blocks.AcfTestimonials.fragments.key}
           ...${blocks.AcfLatestNews.fragments.key}
           ...${blocks.AcfFeaturedRentals.fragments.key}
+          ...${blocks.AcfInlinePromo.fragments.key}
+          ...${blocks.AcfFrequentlyAsked.fragments.key}
         }
       }
     }

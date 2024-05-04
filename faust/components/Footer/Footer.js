@@ -3,9 +3,6 @@ import styles from './Footer.module.scss';
 import Image from 'next/image'
 
 export default function Footer(props) {
-    console.log("FOOTER PROPS:");
-    console.log(props);
-
     return (
         <footer className="text-light">
         <div className="container">

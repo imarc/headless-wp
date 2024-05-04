@@ -2,10 +2,10 @@ export default function MarqueeList(props) {
     if (!props) return;
 
     function renderTerms(terms) {
-        return props.terms && props.terms.map(term => {
+        return props.terms && props.terms.map((term, index) => {
             if (!term.keyWord) return;
             return (
-                <div className="d-item">
+                <div className="d-item" key={index}>
                     <span className="d-item-txt">{term.keyWord}</span>
                     <span className="d-item-display">
                         <i className="d-item-dot"></i>

@@ -9,15 +9,15 @@ export default function FeaturedRentals(props) {
                         <div className="spacer-20"></div>
                     </div>
                     <div id="items-carousel" className="owl-carousel wow fadeIn">
-                        {props.featuredCars && props.featuredCars.nodes && props.featuredCars.nodes.map(car => {
+                        {props.featuredCars && props.featuredCars.nodes && props.featuredCars.nodes.map((car, index) => {
                             const carFields = car.carFields;
                             const carType = carFields?.carType?.nodes[0].name;
                             
                             return (
-                                <div className="col-lg-12">
+                                <div className="col-lg-12" key={index}>
                                     <div className="de-item mb30">
                                         <div className="d-img">
-                                            <img src="images/cars/jeep-renegade.jpg" className="img-fluid" alt="" />
+                                            <img src={carFields.thumbnailPhoto.node.sourceUrl} className="img-fluid" alt="" />
                                         </div>
                                         <div className="d-info">
                                             <div className="d-text">

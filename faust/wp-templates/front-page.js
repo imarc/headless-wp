@@ -6,7 +6,6 @@ import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 
 export default function Component(props) {
-  console.log(props);
   const { editorBlocks } = props.data.pages.nodes[0];
   const { navigationMenu } = props.data;
   const { footer } = props.data.footerOptionPage;

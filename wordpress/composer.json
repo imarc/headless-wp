@@ -39,7 +39,7 @@
         }
     ],
     "require": {
-        "wpackagist-plugin/wp-graphql": "^1.23",
+        "wpackagist-plugin/wp-graphql": "^1.25",
         "wpackagist-plugin/faustwp": "^1.2",
         "wpackagist-plugin/wpgraphql-acf": "^2.2",
         "wpengine/advanced-custom-fields-pro": "^6.2"

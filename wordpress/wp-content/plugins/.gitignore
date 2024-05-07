@@ -1,5 +1,0 @@
-# Exclude third-party plugins managed by Composer
-faustwp/
-wpgraphql-acf/
-wp-graphql/
-advanced-custom-fields-pro/

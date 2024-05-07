@@ -32,6 +32,10 @@
         {
             "name": "Madison Pratt",
             "email": "madisonpratt@imarc.com"
+        },
+        {
+            "name": "Francisco Costoya",
+            "email": "franciscocostoya@imarc.com"
         }
     ],
     "require": {

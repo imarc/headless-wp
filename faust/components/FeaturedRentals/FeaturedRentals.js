@@ -33,7 +33,7 @@ export default function FeaturedRentals(props) {
                                                 </div>
                                                 <div className="d-price">
                                                     Daily rate from <span>${carFields.dailyRate}</span>
-                                                    <a className="btn-main" href="car-single.html">Rent Now</a>
+                                                    <a className="btn-main" href={car.uri}>Rent Now</a>
                                                 </div>
                                             </div>
                                         </div>

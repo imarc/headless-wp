@@ -9,9 +9,9 @@ export default function InlinePromo(props) {
                                 {props.heading && <h1>{props.heading}</h1>}
                                 <div className="spacer-20"></div>
                             </div>
-                            { props.promoItems && props.promoItems.map(item => {
+                            { props.promoItems && props.promoItems.map((item, index) => {
                                 return (
-                                    <div className="col-md-3">
+                                    <div className="col-md-3" key={index}>
                                         {item.icon && <i className={`fa ${item.icon} de-icon mb20`}></i>}
                                         {item.heading && <h4>{item.heading}</h4>}
                                         {item.subheading && <p>{item.subheading}</p>}

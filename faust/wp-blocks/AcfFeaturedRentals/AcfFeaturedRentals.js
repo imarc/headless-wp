@@ -39,6 +39,7 @@ AcfFeaturedRentals.fragments = {
                       dailyRate
                       likes
                     }
+                    uri
                   }
                 }
             }

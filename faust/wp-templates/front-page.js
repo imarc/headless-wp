@@ -4,13 +4,15 @@ import { gql } from '@apollo/client';
 import { Layout } from '../components/Layout';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import { WelcomeOverlay } from '../components/WelcomeOverlay';
 
 export default function Component(props) {
   const { editorBlocks } = props.data.pages.nodes[0];
   const { navigationMenu } = props.data;
   const { footer } = props.data.footerOptionPage;
-  return (
+  return ( 
       <Layout>
+        <WelcomeOverlay />
         <Navigation {...navigationMenu} />
         <WordPressBlocksViewer blocks={editorBlocks}/>
         <Footer {...footer} />

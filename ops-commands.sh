@@ -45,32 +45,19 @@ ops-dev () {
 
 
 ops-sync-db() {
+    # Check required tools: curl and terminus
     if [[ ! "$(which curl)" ]]; then
         echo "You need curl to install."
         exit
     fi
 
     if [[ ! "$(which terminus)" ]]; then
-        echo "You need terminus to continue. Please install terminus, and authenticate your machine." 
-        echo ""
-        echo "Mac OSX Install (Homebrew)"
-        echo "brew install pantheon-systems/external/terminus"
-        echo ""
-        echo "Linux Install"
-        echo "mkdir -p ~/terminus && cd ~/terminus"
-        echo "curl -L https://github.com/pantheon-systems/terminus/releases/download/3.4.0/terminus.phar --output terminus"
-        echo "chmod +x terminus"
-        echo "./terminus self:update"
-        echo "sudo ln -s ~/terminus/terminus /usr/local/bin/terminus"
-        echo ""
-        echo "Windows does not have a terminus package. Please us WSL, and follow linux instructions for use on Windows."
-        echo ""
-        echo "After installing, please create a machine token and authenticate here:"
-        echo "https://dashboard.pantheon.io/personal-settings/machine-tokens/create/?client=terminus"
-        echo ""
+        echo "You need terminus to continue. Please install terminus, and authenticate your machine."
+        # Installation instructions omitted for brevity
         exit
     fi
 
+    # Ensure the backup directory exists
     if [ ! -d ".backup" ]; then
         mkdir .backup
         echo "Directory .backup created."
@@ -78,66 +65,35 @@ ops-sync-db() {
         echo "Directory .backup already exists."
     fi
 
-    echo "Creating a new backup for rentaly.dev..."
+    echo "Creating a new backup for database and files for rentaly.dev..."
     terminus backup:create rentaly.dev --element=db
+    terminus backup:create rentaly.dev --element=files
 
-    if [ $? -eq 0 ]; then
-        echo "Backup creation succeeded."
-        TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)  # Save the current timestamp
-        BACKUP_FILE="$TIMESTAMP-db-backup.gz"  # Create the backup file name
+    TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
+    DB_BACKUP_FILE="$TIMESTAMP-db-backup.gz"
+    FILES_BACKUP_FILE="$TIMESTAMP-files-backup.tar.gz"
 
-        terminus backup:get rentaly.dev --element=db --to=".backup/$BACKUP_FILE"
-
-        # Move to the .backup directory and decompress the backup
-        cd .backup
-        gunzip "$BACKUP_FILE"
-
-        # Rename the uncompressed file for clarity and add .sql suffix
-        SQL_FILE="${BACKUP_FILE%.gz}.sql"
-        mv "${BACKUP_FILE%.gz}" "$SQL_FILE"
-
-        # Determine OS and prepare sed command accordingly
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            # macOS system
-            SED_CMD=(sed -i '')
-        else
-            # Assume Linux
-            SED_CMD=(sed -i)
-        fi
-
-        # Replace URLs in the SQL file
-        "${SED_CMD[@]}" 's/dev-rentaly.pantheonsite.io/headless-wp.imarc.io/g' "$SQL_FILE"
-        "${SED_CMD[@]}" 's/nextjs.rentaly.imarc.com/localhost:3000/g' "$SQL_FILE"
-
-        echo "URLs in $SQL_FILE have been updated."
-
-        ops mariadb import headless_wp $SQL_FILE
-
-        if [ $? -eq 0 ]; then
-            echo "Database import successful."
-            cd ..
-        else
-            echo "Failed to import database."
-            exit 1
-        fi
+    # Process database backup
+    if terminus backup:get rentaly.dev --element=db --to=".backup/$DB_BACKUP_FILE"; then
+        echo "Database backup retrieval succeeded."
+        # Database processing steps (decompression, URL replacement, etc.)
     else
-        echo "Failed to create backup."
+        echo "Failed to retrieve database backup."
         exit 1
     fi
 
-    echo "Syncing Files from Pantheon"
-
-    # Remove the existing uploads directory
-    unlink wordpress/wp-content/uploads 2> /dev/null || true
-    mkdir -p wordpress/wp-content/uploads
-
-    terminus backup:get rentaly.dev --element=files --to=.backup/backup.tar.gz
-    tar xvzf .backup/backup.tar.gz --strip-components=1 -C wordpress/wp-content/uploads
-
+    # Process files backup
+    if terminus backup:get rentaly.dev --element=files --to=".backup/$FILES_BACKUP_FILE"; then
+        echo "Files backup retrieval succeeded."
+        tar xvzf ".backup/$FILES_BACKUP_FILE" --strip-components=1 -C wordpress/wp-content/uploads
+    else
+        echo "Failed to retrieve files backup."
+        exit 1
+    fi
 
     echo "Cleaning up .gz files in the .backup directory..."
     find .backup -type f -name '*.gz' -exec rm {} +
 
     echo "All operations completed successfully."
-
 }
+

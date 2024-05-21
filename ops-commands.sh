@@ -53,7 +53,6 @@ ops-sync-db() {
 
     if [[ ! "$(which terminus)" ]]; then
         echo "You need terminus to continue. Please install terminus, and authenticate your machine."
-        # Installation instructions omitted for brevity
         exit
     fi
 

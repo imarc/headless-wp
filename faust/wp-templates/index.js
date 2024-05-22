@@ -8,6 +8,6 @@ export default {
   // category,
   // tag,
   'front-page': frontPage,
-  // page,
+  'page': page,
   // single,
 };

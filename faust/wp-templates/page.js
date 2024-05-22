@@ -1,91 +1,91 @@
-// import { gql } from '@apollo/client';
-// import * as MENUS from '../constants/menus';
-// import { BlogInfoFragment } from '../fragments/GeneralSettings';
-// import {
-//   Header,
-//   Footer,
-//   Main,
-//   Container,
-//   ContentWrapper,
-//   EntryHeader,
-//   NavigationMenu,
-//   FeaturedImage,
-//   SEO,
-// } from '../../common/components';
+import { gql } from '@apollo/client';
+import blocks from '../wp-blocks';
+import { Layout } from '../components/Layout';
+import { WelcomeOverlay } from '../components/WelcomeOverlay';
+import { Navigation } from '../components/Navigation'; 
+import { Footer } from '../components/Footer';
 
-// export default function Component(props) {
-//   // Loading state for previews
-//   if (props.loading) {
-//     return <>Loading...</>;
-//   }
+export default function Component(props) {
+    console.log(props);
+    const { navigationMenu } = props.data;
+    const { footer } = props.data.footerOptionPage;
+    const slug = props.__SEED_NODE__.slug;
 
-//   const { title: siteTitle, description: siteDescription } =
-//     props?.data?.generalSettings;
-//   const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
-//   const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
-//   const { title, content, featuredImage } = props?.data?.page ?? { title: '' };
+    const divStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: 'calc(100vh - 100px)', // Assuming the footer height is 100px
+        margin: '0 auto',
+        backgroundColor: 'black'
+    };
 
-//   return (
-//     <>
-//       <SEO
-//         title={siteTitle}
-//         description={siteDescription}
-//         imageUrl={featuredImage?.node?.sourceUrl}
-//       />
-//       <Header
-//         title={siteTitle}
-//         description={siteDescription}
-//         menuItems={primaryMenu}
-//       />
-//       <Main>
-//         <>
-//           <EntryHeader title={title} image={featuredImage?.node} />
-//           <Container>
-//             <ContentWrapper content={content} />
-//           </Container>
-//         </>
-//       </Main>
-//       <Footer title={siteTitle} menuItems={footerMenu} />
-//     </>
-//   );
-// }
+    return ( 
+        <Layout>
+          <WelcomeOverlay />
+          <Navigation {...navigationMenu} />
+          <>
+            <div style={divStyle}>
+              <p>This is a page.js template</p><br />
+              <p>slug : {slug}</p>
+            </div>
+          </>
+          <Footer {...footer} />
+        </Layout>
+    )
+  }
 
-// Component.variables = ({ databaseId }, ctx) => {
-//   return {
-//     databaseId,
-//     headerLocation: MENUS.PRIMARY_LOCATION,
-//     footerLocation: MENUS.FOOTER_LOCATION,
-//     asPreview: ctx?.asPreview,
-//   };
-// };
-
-// Component.query = gql`
-//   ${BlogInfoFragment}
-//   ${NavigationMenu.fragments.entry}
-//   ${FeaturedImage.fragments.entry}
-//   query GetPageData(
-//     $databaseId: ID!
-//     $headerLocation: MenuLocationEnum
-//     $footerLocation: MenuLocationEnum
-//     $asPreview: Boolean = false
-//   ) {
-//     page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
-//       title
-//       content
-//       ...FeaturedImageFragment
-//     }
-//     generalSettings {
-//       ...BlogInfoFragment
-//     }
-//     footerMenuItems: menuItems(where: { location: $footerLocation }) {
-//       nodes {
-//         ...NavigationMenuItemFragment
-//       }
-//     }
-//     headerMenuItems: menuItems(where: { location: $headerLocation }) {
-//       nodes {
-//         ...NavigationMenuItemFragment
-//       }
-//     }
-//   }
-// `;
+Component.query = gql`
+  query NavQuery {
+    navigationMenu: menu(id: "Navigation", idType: NAME) {
+      count
+      id
+      databaseId
+      name
+      slug
+      menuItems (first: 100) {
+        nodes {
+          id
+          url
+          label
+          linkRelationship
+          parentId
+        }
+      }
+    }
+    footerOptionPage {
+      footer {
+        textSection {
+          headline
+          paragraph
+        }
+        quickLinksSection {
+          headline
+          quickLinks {
+            label
+            url
+          }
+        }
+        contactUsSection {
+          headline
+          contactLinks {
+            iconClass
+            label
+            url
+          }
+        }
+        socialNetworksSection{
+          headline
+          socialLinks{
+            icon
+            url
+          }
+        }
+        bottomLinks {
+          label
+          url
+        }
+      }
+    }
+  }`
